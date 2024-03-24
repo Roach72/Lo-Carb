@@ -1,0 +1,162 @@
+{% extends 'app/main.html' %}
+{% load static %}{% load i18n %}
+
+{% block content %}
+<nav class="nav1 navbar navbar-expand-lg bg-body-tertiary" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'page' %}">Locarb</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                  {% get_current_language as LANGUAGE_CODE %}
+                  <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:'}}">
+                  {% if LANGUAGE_CODE == 'en' %}
+                    <button type="submit" name="language" value="ar" class="btn solid">
+                        <span class="label"></span>العربية
+                      </button>
+                  {% else %}
+                  <button type="submit" name="language" value="en" class="btn solid">
+                    <span class="label"></span>English
+                  </button>
+                  {% endif %} 
+                </form>
+            </li>
+            <li class="nav-item">
+                {% if LANGUAGE_CODE == 'en' %}
+                <a class="btn nav-link" href="{% url 'page' %}">Visit our website</a>
+                {% else %}
+                <a class="btn nav-link" href="{% url 'page' %}"> زور موقعنا</a>
+                {% endif %}
+              </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="container social-main">
+    <div class="social">
+        <div class="lo d-flex justify-content-center">
+            <img class="logo" src="{% static 'images/lor.png' %}">
+        </div>
+        <div class="wrapper">
+            <svg>
+                <text x="50%" y="50%" dy=".35em" text-anchor="middle">LoCarb</text>
+            </svg>
+        </div>
+        <div class="row d-flex justify-content-evenly">
+            <div class="a" style="margin-top: 40px;">
+                {% if LANGUAGE_CODE == 'en' %}
+                <h3 style="color: brown;">For orders from restaurants </h3>
+                {% else %}
+                <h3 style="color: brown;">للطلبات من المطعـم</h3>
+                {% endif %}
+            </div>
+            <a href="https://order.locarbkw.com" class="a d-flex justify-content-evenly " data-aos="fade-right" style="margin-bottom: 40px;">
+                <div class="link d-flex justify-content-evenly">
+                    <img class="img" src="{% static 'images/lo.png' %}" loading="lazy">
+                    <h5 class="logo">LoCarb</h5>
+                </div>
+            </a>
+
+            <div class="a" style="margin-bottom: 40px;">
+                {% if LANGUAGE_CODE == 'en' %}
+                <h3 style="color: brown;"> Subscribe through the application</h3>
+                {% else %}
+                <h3 style="color: brown;"> الاشتراك من خلال التطبيق</h3>
+                {% endif %}
+            </div>
+            {% for a in apps %}
+            <a href="{{ a.href }}" class="b d-flex justify-content-evenly" data-aos="fade-right" >
+                <div class="link ">
+                    <img class="store" src="{{ a.image.url }}" alt="images" loading="lazy">
+                </div>
+            </a>
+           {% endfor %}
+            <div class="a" style="margin-top: 40px;">
+                {% if LANGUAGE_CODE == 'en' %}
+                <h3 style="color: brown;">Or through customer service</h3>
+                {% else %}
+                <h3 style="color: brown;"> او من خلال خدمة العملة</h3>
+                {% endif %}
+            </div>
+            <div class="col-6 d-flex justify-content-evenly" style="margin-top: 10px;">
+                {% for i in whatsapp_chats %}
+                <a href="https://api.whatsapp.com/send?phone={{ i.whatsapp_chat_link }}" class="w" data-aos="fade-right">
+                    <div class="link ">
+                        <img class="img" src="{{ i.image.url }}" alt="{{ i.text }}" loading="lazy">
+                    </div>
+                </a>
+                {% endfor %}
+                {% for m in mobiles  %}
+                <a href="tel:{{ m.mobile }}" class="w" data-aos="fade-right">
+                    <div class="link">
+                        <img class="img" src="{{ m.image.url }}" alt="{{ m.text }}" loading="lazy">
+                    </div>
+                </a>
+                {% endfor %}
+           </div>
+
+            <div class="a" style="margin-top: 40px;">
+                {% if LANGUAGE_CODE == 'en' %}
+                <h3 style="color: brown;">Follow us on social media sites</h3>
+                {% else %}
+                <h3 style="color: brown;">تابعنا علي موقعنا التواصل الاجتماعي</h3>
+                {% endif %}
+
+            </div>
+            <div class="col-6 d-flex justify-content-evenly" style="margin-top: 10px;" >
+            {% for link in social_links %}
+            <a href="{{ link.href }}" class="m" data-aos="fade-left">
+                <div class="link">
+                    <img class="img" src="{{ link.image.url }}" alt="{{ link.text }}" loading="lazy">
+                </div>
+            </a>
+            {% endfor %}
+           </div>
+
+            <div class="a" style="margin-top: 40px;">
+                {% if LANGUAGE_CODE == 'en' %}
+                <h3 style="color: brown;" >Our branches</h3>
+                {% else %}
+                <h3 style="color: brown;" >فروعنا</h3>
+                {% endif %}
+            </div>
+            <div class=" ">
+              <div id="carouselExampleIndicators" class="carousel slide" style="margin-top: 10px;">
+                  <div class="carousel-inner">
+                      {% for location in locations %}
+                      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                          <div class="card text-center mb-3 mx-auto" style="width: 18rem;">
+                              <div class="card-body">
+                                  {% if LANGUAGE_CODE == 'en' %}
+                                  <h5 class="card-title">{{ location.text_en }}</h5>
+                                  {% else %}
+                                  <h5 class="card-title">{{ location.text }}</h5>
+                                  {% endif %}
+                                  <a href="tel:{{ location.mobile }}"  style="color: black;" class="card-text text-decoration-none">{{ location.mobile }}</a>
+                                  <a href="{{ location.map_link }}">
+                                    <img src="{% static 'images/mm.png' %}" alt="Map Image" width="100%" height="200" loading="lazy">
+                                </a>                              
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+          </div>
+          
+        </div>
+    </div>
+</div>
+{% endblock content %}
