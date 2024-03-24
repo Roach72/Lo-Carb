@@ -1,0 +1,180 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Tajawal" !important;
+    background-image: url(../images/DSC09576.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.ail{
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0.6);
+}
+.nav1{
+    background-color: rgb(242, 188, 141) !important; 
+
+}
+.nav1 a{
+    color: black;
+
+}
+.nav1 a:hover{
+    font-weight: 500;
+    color: green;
+}
+.social-main{
+    padding: 100px 0;
+}
+.social-main .social{
+    text-align: center;
+
+}
+
+.social-main .social .logo{
+    width: 150px;
+}
+.social-main .social .a{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.7);
+    text-decoration: none !important;
+    color: black;
+    
+}
+
+.social-main .social .m{
+    width: auto;
+}
+.social-main .social .w{
+    width: auto;
+}
+.social-main .social .w .link{
+    background-color: transparent;
+}
+.social-main .social .m .link{
+    background-color: transparent;
+
+}
+.social-main .social .b{
+    padding: 5px;
+    margin: 5px;
+    width: 70%;
+
+}
+
+.social-main .social .lociation{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    text-decoration: none !important;
+    color: black;
+}
+
+.social-main .social .link .img{
+    width: 50px;
+    border-radius: 50%;
+}
+.social-main .social .link .store {
+    width: 30%;
+
+}
+.social-main .social .link .logo{
+    padding-top: 15px;
+
+}
+.social-main .social .card{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.carousel-item {
+    position: relative;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    background-color: rgb(242, 155, 80, 0.4)
+}
+.header .img1{
+    height: 60vh ;
+}
+
+.header .text .img{
+    width: 38%;
+}
+
+
+.page{
+    padding-top: 50px;
+    padding-bottom: 40px;
+    background-color: rgb(220, 220, 220, 0.9);
+}
+
+
+.page .s2 img{
+    height: 50vh;
+}
+
+
+footer {
+    background-color: transparent; /* لون الأب */
+    color: white;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0; /* تباعد النصوص من الحواف */
+}
+
+@media (max-width: 575.98px) { 
+    .header .img1{
+        height: 28vh ;
+    }
+    .page .s2 img{
+        height: 28vh;
+    }
+ }
+
+
+
+
+svg {
+	font-family: "Ovo";
+	width: 100%; height: 100%;
+}
+svg text {
+	animation: stroke 5s infinite alternate;
+	stroke-width: 2;
+	stroke: #C7B853;
+	font-size: 100px;
+    z-index: 2;
+}
+@keyframes stroke {
+	0%   {
+		fill: rgba(204,184,91,0); stroke: rgba(199,184,83,1);
+		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+	}
+	70%  {fill: rgba(204,184,91,0); stroke: rgba(199,184,83,1); }
+	80%  {fill: rgba(204,184,91,0); stroke: rgba(199,184,83,1); stroke-width: 3; }
+	100% {
+		fill: rgba(204,184,91,1); stroke: rgba(199,184,83,0);
+		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+	}
+}
+
+.wrapper {background-color: transparent};
+
+
+
+@import url('/static/css/main.css');
