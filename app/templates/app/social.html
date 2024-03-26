@@ -49,28 +49,28 @@
         <div class="row d-flex justify-content-evenly">
             <div class="a" style="margin-top: 40px;">
                 {% if LANGUAGE_CODE == 'en' %}
-                <h3 style="color: brown;">For orders from restaurants </h3>
+                <h3 style="color: rgb(255, 119, 0) !important;"> <span>For orders from restaurants </span></h3>
                 {% else %}
-                <h3 style="color: brown;">للطلبات من المطعـم</h3>
+                <h3 style="color: rgb(255, 119, 0) !important;"> <span>للطلبات من المطعـم  </span></h3>
                 {% endif %}
             </div>
             {% for lo in addlocarbs %}
-            <a href="{{ lo.href }}" class="a d-flex justify-content-evenly " data-aos="fade-right" style="margin-bottom: 40px;">
-                <div class="link d-flex justify-content-evenly">
+            <a href="{{ lo.href }}" class="alogo d-flex justify-content-evenly " data-aos="fade-right" style="margin-bottom: 40px;">
+                <div class=" link d-flex justify-content-evenly">
                     <img class="img" src="{{ lo.image.url }}" loading="lazy">
                     {% if LANGUAGE_CODE == 'en' %}
-                    <h5 class="logo">{{ lo.title_en }}</h5>
+                    <h3 class="logo"><span>{{ lo.title_en }}</span></h3>
                     {% else %}
-                    <h5 class="logo">{{ lo.title }}</h5>
+                    <h3 class="logo"><span>{{ lo.title }}</span></h3>
                     {% endif %}
                 </div>
             </a>
             {% endfor %}
             <div class="a" style="margin-bottom: 40px;">
                 {% if LANGUAGE_CODE == 'en' %}
-                <h3 style="color: brown;"> Subscribe through the application</h3>
+                <h3 style="color: rgb(255, 119, 0) !important;"><span>Subscribe through the application </span></h3>
                 {% else %}
-                <h3 style="color: brown;"> الاشتراك من خلال التطبيق</h3>
+                <h3 style="color: rgb(255, 119, 0) !important;"><span> الاشتراك من خلال التطبيق </span></h3>
                 {% endif %}
             </div>
             {% for a in apps %}
@@ -82,9 +82,9 @@
            {% endfor %}
             <div class="a" style="margin-top: 40px;">
                 {% if LANGUAGE_CODE == 'en' %}
-                <h3 style="color: brown;">Or through customer service</h3>
+                <h3 style="color: rgb(255, 119, 0) !important;"><span> Or through customer service </span></h3>
                 {% else %}
-                <h3 style="color: brown;"> او من خلال خدمة العملة</h3>
+                <h3 style="color: rgb(255, 119, 0) !important;"><span> او من خلال خدمة العملة </span></h3>
                 {% endif %}
             </div>
             <div class="col-6 d-flex justify-content-evenly" style="margin-top: 10px;">
@@ -106,9 +106,9 @@
 
             <div class="a" style="margin-top: 40px;">
                 {% if LANGUAGE_CODE == 'en' %}
-                <h3 style="color: brown;">Follow us on social media sites</h3>
+                <h3 style="color: rgb(255, 119, 0) !important;"><span>Follow us on social media sites </span></h3>
                 {% else %}
-                <h3 style="color: brown;">تابعنا علي موقعنا التواصل الاجتماعي</h3>
+                <h3 style="color: rgb(255, 119, 0) !important;"> <span>تابعنا علي موقعنا التواصل الاجتماعي </span></h3>
                 {% endif %}
 
             </div>
@@ -124,9 +124,9 @@
 
             <div class="a" style="margin-top: 40px;">
                 {% if LANGUAGE_CODE == 'en' %}
-                <h3 style="color: brown;" >Our branches</h3>
+                <h3 style="color: rgb(255, 119, 0) !important;" ><span> Our branches </span></h3>
                 {% else %}
-                <h3 style="color: brown;" >فروعنا</h3>
+                <h3 style="color: rgb(255, 119, 0) !important;" > <span>فروعنا   </span></h3>
                 {% endif %}
             </div>
             <div class=" ">
