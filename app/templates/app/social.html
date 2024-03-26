@@ -54,7 +54,7 @@
                 <h3 style="color: brown;">للطلبات من المطعـم</h3>
                 {% endif %}
             </div>
-            {% for lo in locarbs %}
+            {% for lo in addlocarbs %}
             <a href="{{ lo.href }}" class="a d-flex justify-content-evenly " data-aos="fade-right" style="margin-bottom: 40px;">
                 <div class="link d-flex justify-content-evenly">
                     <img class="img" src="{{ lo.image.url }}" loading="lazy">

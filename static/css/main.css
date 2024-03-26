@@ -19,9 +19,11 @@ body {
 
 }
 .nav1 a{
-    color: black;
+    color: black !important;
+    text-decoration: none;
 
 }
+
 .nav1 a:hover{
     font-weight: 500;
     color: green;

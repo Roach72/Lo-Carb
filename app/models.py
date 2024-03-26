@@ -61,7 +61,7 @@ class description2(models.Model):
     def __str__(self):
         return self.image.name if self.image else "image"
 
-class locarb(models.Model):
+class addlocarb(models.Model):
     image = models.ImageField(null=True, blank=True)
     title = models.CharField(max_length=100, default='العنوان باللغة العربية')
     title_en = models.CharField(max_length=100, default='العنوان باللغه الانجليزية')
